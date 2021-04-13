@@ -1,0 +1,3 @@
+class User:
+    EMAIL = ""
+    PASSWORD = ""
