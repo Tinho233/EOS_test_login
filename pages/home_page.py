@@ -2,6 +2,9 @@ import time
 
 import pytest
 from selenium.webdriver import ActionChains
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.wait import WebDriverWait
+
 from pages.base_page import BasePage
 from pages.locators import HomePageLocators as locs
 from selenium.webdriver.support import expected_conditions as ec
@@ -49,5 +52,5 @@ class HomePage(BasePage):
     def click_sidebar_user_menu(self):
         self.wait_element(locs.sidebar_user_menu).click()
 
-    def get_user_email_info(self):
-        return self.wait_element(locs.email_user_info, ec.text_to_be_present_in_element)
+    def wait_user_mail(self, text):
+        return self.wait_until_element_has_text(locs.email_user_info, text)

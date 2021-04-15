@@ -28,3 +28,10 @@ class BasePage:
         element = self.wait_element(locator, ec.element_to_be_clickable, timeout)
         element.clear()
         element.send_keys(text)
+
+    def wait_until_element_has_text(self, locator: str, text, timeout=EXPLICIT_TIMEOUT, by=By.CSS_SELECTOR):
+        try:
+            WebDriverWait(self.driver, timeout).until(ec.text_to_be_present_in_element((by, locator), text))
+            return True
+        except TimeoutException:
+            return False
