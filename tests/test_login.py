@@ -1,7 +1,4 @@
-import time
-
 import pytest
-
 from pages.home_page import HomePage
 from settings import *
 from user import User
@@ -26,4 +23,4 @@ class TestLogin:
         home.enter_password(User.PASSWORD)
         home.click_sign_in_button()
         home.click_sidebar_user_menu()
-        assert home.wait_user_mail(User.EMAIL)
+        assert home.wait_user_mail(User.EMAIL), f"User mail {User.EMAIL} not found"

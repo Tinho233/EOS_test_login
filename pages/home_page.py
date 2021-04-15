@@ -1,13 +1,8 @@
-import time
-
 import pytest
+import time
 from selenium.webdriver import ActionChains
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.wait import WebDriverWait
-
 from pages.base_page import BasePage
 from pages.locators import HomePageLocators as locs
-from selenium.webdriver.support import expected_conditions as ec
 
 
 class HomePage(BasePage):
